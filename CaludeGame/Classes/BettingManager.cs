@@ -82,6 +82,11 @@ public class BettingManager
         CurrentBet = 0;
         _playerBets.Clear();
     }
+    public int GetPlayerBet(Player player)
+    {
+        _playerBets.TryGetValue(player, out int amount);
+        return amount;
+    }
 
     public void Reset()
     {

@@ -1,17 +1,18 @@
-﻿
-namespace CaludeGame.Classes;
+﻿namespace CaludeGame.Classes;
 
 public class Player
 {
-    public Player(string name, int chips)
+    public Player(string name, int chips, bool isHuman = true)
     {
         Name = name;
         Chips = chips;
-        Hand = [];
+        IsHuman = isHuman;
+        Hand = new List<Card>();
     }
 
     public string Name { get; }
     public int Chips { get; set; }
+    public bool IsHuman { get; }
     public List<Card> Hand { get; set; }
 
     public void AddCard(Card card)
@@ -28,8 +29,6 @@ public class Player
     {
         Console.WriteLine($"\n{Name}'s hand:");
         foreach (var card in Hand)
-        {
             Console.WriteLine($"  {card}");
-        }
     }
 }
